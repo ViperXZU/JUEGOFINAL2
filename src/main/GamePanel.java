@@ -18,22 +18,10 @@ import static utilz.Constans.Direction.*;
 public class GamePanel  extends JPanel {
 
     private  MouseInputs mouseInputs;
-    private float xDelta = 100, yDelta = 100;
-    private BufferedImage img;
-    private BufferedImage[][] animations;
-    private int aniTick, aniIndex, aniSpeed = 15;
-    private int playerAction = RUNNING;
-    private int playerDir = -1;
-    private boolean moving = false;
-
-
-
-
-    public GamePanel(){
-
-        importImg();
+    private  Game game;
+    public GamePanel(Game game){
+        this.game = game;
         setPanelSize();
-        loadAnimations();
 
         mouseInputs = new MouseInputs(this );
         addKeyListener(new Keyboardinputs(this));
@@ -41,94 +29,22 @@ public class GamePanel  extends JPanel {
         addMouseMotionListener(mouseInputs);
     }
 
-    private void loadAnimations() {
-        animations = new BufferedImage[9][6];
-
-
-        for (int j = 0; j < animations.length; j++) {
-            for (int i = 0; i < animations[j].length; i++) {
-                animations[j][i] = img.getSubimage(i * 64, j*40, 64, 40);
-            }
-        }
-    }
-    private void updateAnimationTick() {
-        aniTick++;
-        if(aniTick >= aniSpeed){
-            aniTick = 0;
-            aniIndex++;
-            if (aniIndex >= GetSpriteAmount(playerAction)){
-                aniIndex = 0;
-            }
-        }
-    }
-
-    private void importImg() {
-        InputStream is = getClass().getResourceAsStream("/res/player_sprites.png");
-
-        try {
-            img = ImageIO.read(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            try{
-                is.close();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-
-    public void setDirection(int direction){
-        this.playerDir = direction;
-        moving = true;
-    }
-
-    public void setMoving(boolean moving){
-        this.moving = moving;
-    }
-
     private void setPanelSize() {
-        Dimension size = new Dimension(1280,800);
+        Dimension size = new Dimension(1280,800); // Seteo de las dimensiones del Panel(NO DE LA VENTANA)
         setPreferredSize(size);
     }
 
-    private void setAnimation() {
-        if (moving)
-            playerAction = RUNNING;
-        else
-            playerAction = IDLE;
-    }
-
-    private void updatePos(){
-        if (moving){
-            switch (playerDir){
-                case LEFT:
-                    xDelta-=5;
-                    break;
-                case UP:
-                    yDelta-=5;
-                    break;
-                case RIGHT:
-                    xDelta+=5;
-                    break;
-                case DOWN:
-                    yDelta+=5;
-                    break;
-            }
-        }
-    }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
-        g.drawImage(animations[playerAction][aniIndex], (int) xDelta, (int) yDelta,256,160, null);
+        game.render(g);
     }
 
-
     public void updateGame() {
-        updateAnimationTick();
-        setAnimation();
-        updatePos();
+
+    }
+
+    public Game getGame() {
+        return game;
     }
 }

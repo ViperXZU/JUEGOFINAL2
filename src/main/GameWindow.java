@@ -1,6 +1,8 @@
 package main;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 import java.nio.file.FileAlreadyExistsException;
 
 public class GameWindow {
@@ -15,5 +17,16 @@ public class GameWindow {
         Jframe.setResizable(false);
         Jframe.pack();
         Jframe.setVisible(true);
+        Jframe.addWindowFocusListener(new WindowFocusListener() {
+            @Override
+            public void windowGainedFocus(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowLostFocus(WindowEvent e) {
+                gamePanel.getGame().windowFocusLost();
+            }
+        });
     }
 }
