@@ -1,17 +1,18 @@
 package entities;
 
+import utilz.LoadSave;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static utilz.Constans.Direction.*;
-import static utilz.Constans.Direction.DOWN;
 import static utilz.Constans.PlayerConstants.*;
 
 public class Player extends Entity{
     private BufferedImage[][] animations;
+    private int PLAYER_HIGHT, PLAYER_WIDTH;
 
     private int aniTick, aniIndex, aniSpeed = 25;
     private int playerAction = IDLE;
@@ -21,8 +22,10 @@ public class Player extends Entity{
     private float playerSpeed = 2.0f;
 
 
-    public Player(float x, float y) {
+    public Player(float x, float y,int PLAYER_WIDTH, int PLAYER_HIGHT) {
         super(x, y);
+        this.PLAYER_HIGHT = PLAYER_HIGHT;
+        this.PLAYER_WIDTH = PLAYER_WIDTH;
         loadAnimations();
     }
 
@@ -33,31 +36,19 @@ public class Player extends Entity{
     }
 
     public void render(Graphics g){
-        g.drawImage(animations[playerAction][aniIndex], (int) x, (int) y,256,160, null);
+        g.drawImage(animations[playerAction][aniIndex], (int) x, (int) y,PLAYER_WIDTH,PLAYER_HIGHT, null);
     }
 
     private void loadAnimations() {
-        InputStream is = getClass().getResourceAsStream("/res/player_sprites.png");
 
-        try {
-            BufferedImage img = ImageIO.read(is);
+            BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_ATLAS);
 
             animations = new BufferedImage[9][6];
             for (int j = 0; j < animations.length; j++) {
                 for (int i = 0; i < animations[j].length; i++) {
-                    animations[j][i] = img.getSubimage(i * 64, j*40, 64, 40);
+                    animations[j][i] = img.getSubimage(i * 64, j * 40, 64, 40);
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            try{
-                is.close();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        }
-
     }
     private void updateAnimationTick() {
         aniTick++;
@@ -83,6 +74,8 @@ public class Player extends Entity{
     }
 
     private void setAnimation() {
+        int startAni = playerAction;
+
         if (moving)
             playerAction = RUNNING;
         else
@@ -90,6 +83,14 @@ public class Player extends Entity{
 
         if (attacking)
             playerAction = ATTACK_1;
+
+        if (startAni != playerAction)
+            resetAniTick();
+    }
+
+    private void resetAniTick() {
+        aniTick =0;
+        aniIndex =0;
     }
 
     private void updatePos(){
