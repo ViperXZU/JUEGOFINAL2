@@ -1,5 +1,6 @@
 package entities;
 
+import main.Game;
 import utilz.LoadSave;
 
 import javax.imageio.ImageIO;
@@ -9,34 +10,39 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import static utilz.Constans.PlayerConstants.*;
+import static utilz.HelpMethods.CanMoveHere;
 
 public class Player extends Entity{
     private BufferedImage[][] animations;
-    private int PLAYER_HIGHT, PLAYER_WIDTH;
+
 
     private int aniTick, aniIndex, aniSpeed = 25;
     private int playerAction = IDLE;
 
     private boolean right,left,up,down;
     private boolean moving = false, attacking= false;
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 2.0f; // Velocidad del Personaje
+    private int[][] lvlData;
+    private float xDrawOffset = 21 * Game.SCALE;
+    private float yDrawOffset= 4 * Game.SCALE;
 
 
-    public Player(float x, float y,int PLAYER_WIDTH, int PLAYER_HIGHT) {
-        super(x, y);
-        this.PLAYER_HIGHT = PLAYER_HIGHT;
-        this.PLAYER_WIDTH = PLAYER_WIDTH;
+    public Player(float x, float y,int width , int height) {
+        super(x, y , width, height);
         loadAnimations();
+        initHitbox(x,y,20*Game.SCALE,28*Game.SCALE);
     }
 
     public void update(){
+        updatePos();
+
         updateAnimationTick();
         setAnimation();
-        updatePos();
     }
 
     public void render(Graphics g){
-        g.drawImage(animations[playerAction][aniIndex], (int) x, (int) y,PLAYER_WIDTH,PLAYER_HIGHT, null);
+        g.drawImage(animations[playerAction][aniIndex], (int) (hitbox.x - xDrawOffset), (int) (hitbox.y - yDrawOffset),width, height, null);
+        drawHitBox(g);
     }
 
     private void loadAnimations() {
@@ -50,6 +56,11 @@ public class Player extends Entity{
                 }
             }
     }
+
+    public void loadLvlData(int[][] lvlData){
+        this.lvlData = lvlData;
+    }
+
     private void updateAnimationTick() {
         aniTick++;
         if(aniTick >= aniSpeed){
@@ -76,6 +87,7 @@ public class Player extends Entity{
     private void setAnimation() {
         int startAni = playerAction;
 
+
         if (moving)
             playerAction = RUNNING;
         else
@@ -96,18 +108,26 @@ public class Player extends Entity{
     private void updatePos(){
         moving= false;
 
-       if(left && !right){
-            x-= playerSpeed;
-            moving = true;
-       }else if(right && !left){
-           x+= playerSpeed;
-           moving = true;
-       }
-        if(up && !down){
-            y-=playerSpeed;
-            moving = true;
-        }else if(down && !up){
-            y+=playerSpeed;
+        if (!left && !right && !up && !down ){
+            return;
+        }
+
+        float xSpeed =0, ySpeed =0;
+
+       if(left && !right)
+            xSpeed = -playerSpeed;
+       else if(right && !left)
+           xSpeed = playerSpeed;
+
+       if(up && !down)
+           ySpeed = -playerSpeed;
+       else if(down && !up)
+           ySpeed=playerSpeed;
+
+
+        if (CanMoveHere(hitbox.x + xSpeed, hitbox.y + ySpeed, hitbox.width, hitbox.height, lvlData)){
+            hitbox.x +=xSpeed;
+            hitbox.y +=ySpeed;
             moving = true;
         }
     }
