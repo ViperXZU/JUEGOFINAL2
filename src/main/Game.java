@@ -11,14 +11,17 @@ public class Game implements Runnable {
      private  GamePanel gamePanel;
 
      private Thread gameThread;
+     //Frames por segundo
      private final int FPS_SET = 120;
+     //ACTUALIZACIONES POR SEGUNDO
      private final int UPS_SET = 200;
 
      private Player player;
      private LevelManager levelManager;
 
+     //Variables que determinan el tamano del juego
      public final static int TILES_DEFAULT_SIZE =32;
-     public final static float SCALE = 1.5f;
+     public final static float SCALE = 1.5f; // Muy importante esta variable dependiendo de que tan grande queremos que se vea el juego se va modificando
      public final static int TILES_IN_WIDTH = 26;
      public final static int TILES_IN_HEIGHT = 14;
      public final static int TILES_SIZE = (int) (TILES_DEFAULT_SIZE * SCALE);

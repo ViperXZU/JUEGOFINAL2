@@ -2,6 +2,8 @@ package utilz;
 
 import main.Game;
 
+import java.awt.geom.Rectangle2D;
+
 public class HelpMethods {
 
      public static boolean CanMoveHere(float x,float y, float width,float height,int [][] lvlData){
@@ -29,4 +31,29 @@ public class HelpMethods {
             return  true;
          return false;
      }
+
+     public static float GetEntityXposNextToWall(Rectangle2D.Float hitbox, float xSpeed){
+         int currentTile = (int)( hitbox.x / Game.TILES_SIZE);
+         if (xSpeed > 0){
+             //Derecha
+             int tileXPos = currentTile * Game.TILES_SIZE;
+             int xOffset = (int)(Game.TILES_SIZE- hitbox.width);
+             return tileXPos + xOffset - 1;
+         }else {
+             //Izquierda
+             return currentTile * Game.TILES_SIZE;
+         }
+     }
+    public static float GetEntityYPosUnderRoofOrAboveFloor(Rectangle2D.Float hitbox, float airSpeed){
+        int currentTile = (int)( hitbox.x / Game.TILES_SIZE);
+        if (airSpeed > 0){
+            //Derecha
+            int tileYPos = currentTile * Game.TILES_SIZE;
+            int yOffset = (int)(Game.TILES_SIZE- hitbox.height);
+            return tileYPos + yOffset - 1;
+        }else {
+            //Izquierda
+            return currentTile * Game.TILES_SIZE;
+        }
+    }
 }

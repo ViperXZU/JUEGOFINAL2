@@ -3,34 +3,43 @@ package entities;
 import main.Game;
 import utilz.LoadSave;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 
 import static utilz.Constans.PlayerConstants.*;
-import static utilz.HelpMethods.CanMoveHere;
+import static utilz.HelpMethods.*;
 
 public class Player extends Entity{
+    // Variables para cambiar / guardar animaciones
     private BufferedImage[][] animations;
-
-
     private int aniTick, aniIndex, aniSpeed = 25;
     private int playerAction = IDLE;
 
-    private boolean right,left,up,down;
+
+    // Variables para movimiento / Ataque
+    private boolean right,left,up,down, jump;
     private boolean moving = false, attacking= false;
+
     private float playerSpeed = 2.0f; // Velocidad del Personaje
+
     private int[][] lvlData;
+
+    // Variables encuadrar la hitbox en el personaje
     private float xDrawOffset = 21 * Game.SCALE;
     private float yDrawOffset= 4 * Game.SCALE;
 
+    //Variables Gravedad / SALTO
+    private float airSpeed = 0f;
+    private float gravity = 0.04f * Game.SCALE;
+    private float jumpSpeed = -2.25f * Game.SCALE;
+    private float fallSpeedAfterCollision = 0.5f * Game.SCALE;
+    private boolean inAir = false;
 
+    //Clase principal del jugador
     public Player(float x, float y,int width , int height) {
         super(x, y , width, height);
         loadAnimations();
-        initHitbox(x,y,20*Game.SCALE,28*Game.SCALE);
+        initHitbox(x,y,20*Game.SCALE,28*Game.SCALE); // Iniciacion principal de la hitbox
     }
 
     public void update(){
@@ -105,30 +114,42 @@ public class Player extends Entity{
         aniIndex =0;
     }
 
+
+    //Funcion para actualizar la posicion del personaje dependiendo de la tecla que se presione
     private void updatePos(){
         moving= false;
 
-        if (!left && !right && !up && !down ){
+        if (!left && !right && !inAir ){
             return;
         }
 
-        float xSpeed =0, ySpeed =0;
+        float xSpeed =0;
 
-       if(left && !right)
-            xSpeed = -playerSpeed;
-       else if(right && !left)
-           xSpeed = playerSpeed;
+       if(left)
+            xSpeed -=playerSpeed;
+       if(right)
+           xSpeed += playerSpeed;
 
-       if(up && !down)
-           ySpeed = -playerSpeed;
-       else if(down && !up)
-           ySpeed=playerSpeed;
+       if (inAir){
 
+       }else {
+           updateXPos(xSpeed);
+       }
 
-        if (CanMoveHere(hitbox.x + xSpeed, hitbox.y + ySpeed, hitbox.width, hitbox.height, lvlData)){
+        //Condicional que tiene dentro una funcion condicional que detectara si el personaje se puede mover en una direccion u otra
+ //       if (CanMoveHere(hitbox.x + xSpeed, hitbox.y + ySpeed, hitbox.width, hitbox.height, lvlData)){
+ //           hitbox.x +=xSpeed;
+ //           hitbox.y +=ySpeed;
+ //           moving = true;
+ //       }
+
+    }
+
+    private void updateXPos(float xSpeed) {
+        if (CanMoveHere(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, lvlData)){
             hitbox.x +=xSpeed;
-            hitbox.y +=ySpeed;
-            moving = true;
+        }else {
+            hitbox.x = GetEntityXposNextToWall(hitbox, xSpeed);
         }
     }
 
@@ -162,5 +183,9 @@ public class Player extends Entity{
 
     public void setDown(boolean down) {
         this.down = down;
+    }
+
+    public void setJump(boolean jump) {
+        this.jump = jump;
     }
 }
