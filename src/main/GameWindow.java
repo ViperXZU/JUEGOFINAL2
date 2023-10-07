@@ -6,7 +6,7 @@ import java.awt.event.WindowFocusListener;
 import java.nio.file.FileAlreadyExistsException;
 
 public class GameWindow {
-    private JFrame Jframe;
+    private final JFrame Jframe;
     public GameWindow(GamePanel gamePanel){
 
         Jframe = new JFrame();

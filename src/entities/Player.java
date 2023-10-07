@@ -13,7 +13,9 @@ import static utilz.HelpMethods.*;
 public class Player extends Entity{
     // Variables para cambiar / guardar animaciones
     private BufferedImage[][] animations;
-    private int aniTick, aniIndex, aniSpeed = 25;
+    private int aniTick;
+    private int aniIndex;
+    private final int aniSpeed = 25;
     private int playerAction = IDLE;
 
 
@@ -21,19 +23,19 @@ public class Player extends Entity{
     private boolean right,left,up,down, jump;
     private boolean moving = false, attacking= false;
 
-    private float playerSpeed = 2.0f; // Velocidad del Personaje
+    private final float playerSpeed = 2.0f; // Velocidad del Personaje
 
     private int[][] lvlData;
 
     // Variables encuadrar la hitbox en el personaje
-    private float xDrawOffset = 21 * Game.SCALE;
-    private float yDrawOffset= 4 * Game.SCALE;
+    private final float xDrawOffset = 21 * Game.SCALE;
+    private final float yDrawOffset= 4 * Game.SCALE;
 
     //Variables Gravedad / SALTO
     private float airSpeed = 0f;
-    private float gravity = 0.04f * Game.SCALE;
-    private float jumpSpeed = -2.25f * Game.SCALE;
-    private float fallSpeedAfterCollision = 0.5f * Game.SCALE;
+    private final float gravity = 0.04f * Game.SCALE;
+    private final float jumpSpeed = -2.25f * Game.SCALE;
+    private final float fallSpeedAfterCollision = 0.5f * Game.SCALE;
     private boolean inAir = false;
 
     //Clase principal del jugador

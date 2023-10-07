@@ -9,9 +9,9 @@ import java.awt.image.BufferedImage;
 
 
 public class LevelManager {
-    private Game game;
+    private final Game game;
     private BufferedImage[] levelSprite;
-    private Level levelOne;
+    private final Level levelOne;
 
 
     public LevelManager(Game game){

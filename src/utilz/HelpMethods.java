@@ -10,8 +10,7 @@ public class HelpMethods {
          if (!IsSolid(x,y, lvlData))
              if (!IsSolid(x+width, y+height, lvlData))
                  if (!IsSolid(x+width, y, lvlData))
-                     if (!IsSolid(x, y+height, lvlData))
-                         return true;
+                     return !IsSolid(x, y + height, lvlData);
          return false;
 
      }
@@ -27,9 +26,7 @@ public class HelpMethods {
 
          int value = lvlData[(int)yIndex][(int) xIndex];
 
-         if (value >= 48 || value < 0 || value != 11)
-            return  true;
-         return false;
+         return value >= 48 || value < 0 || value != 11;
      }
     //Como dice ahi para obtener la posicion
      public static float GetEntityXposNextToWall(Rectangle2D.Float hitbox, float xSpeed){
@@ -59,9 +56,9 @@ public class HelpMethods {
     }
     // Basicamente revisa si los pixeles de las esquinas estan tocando piso mediante el metodo isSolid
     public static boolean IsEntityOnFloor(Rectangle2D.Float hitbox, int [][] lvlData) {
+        //Filtra los pixeles del x
         if (!IsSolid(hitbox.x, hitbox.y+hitbox.height+1,lvlData ))//Filtra los pixeles del y
-            if (!IsSolid(hitbox.x+ hitbox.width, hitbox.y+hitbox.height + 1,lvlData ))//Filtra los pixeles del x
-                return false;
+            return IsSolid(hitbox.x + hitbox.width, hitbox.y + hitbox.height + 1, lvlData);
         return true ;
     }
 }
