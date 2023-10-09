@@ -1,8 +1,21 @@
 package utilz;
 
+import main.Game;
+
 public class Constans {
 
-
+    public static class UI{
+        public static class Buttons{
+            public static final int B_WIDTH_DEFAULT = 128;
+            public static final int B_HEIGHT_DEFAULT = 46;
+            public static final int B_WIDTH = (int) (B_WIDTH_DEFAULT * Game.SCALE);
+            public static final int B_HEIGHT = (int) (B_HEIGHT_DEFAULT * Game.SCALE);
+        }
+        public static class PauseButtons{
+            public static final int SOUND_SIZE_DEFAULT = 30;
+            public static final int SOUND_SIZE = (int) (SOUND_SIZE_DEFAULT * Game.SCALE);
+        }
+    }
 
     public static class PlayerConstants{
 
