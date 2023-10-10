@@ -17,6 +17,7 @@ public class LoadSave {
     public static final String MENU_BACKGROUND_IMAGE = "res/fondo.png";
     public static final String PAUSE_BACKGROUND_MENU = "res/fondo_ajustes+letras.png";
     public static final String SOUND_BUTTONS = "res/music.png";
+    public static final String URM_BUTTONS = "res/urm_buttons.png";
 
     public static BufferedImage GetSpriteAtlas(String fileName){
         BufferedImage img = null;

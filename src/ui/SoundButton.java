@@ -40,6 +40,12 @@ public class SoundButton extends PauseButtons {
         g.drawImage(soundImgs[colmIndex][rowIndex],x,y,width,height,null);
     }
 
+    public void resetBooleans(){
+        mouseOver= false;
+        mousePressed= false;
+
+    }
+
     public boolean isMuted() {
         return muted;
     }

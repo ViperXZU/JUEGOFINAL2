@@ -8,22 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42a78230-37e0-4f39-93e7-2f0f2d5c0127" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/PAL DIEGO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/button_atlas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fondo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fondo_ajustes+letras.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/music.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/PauseButtons.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/SoundButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/urm_buttons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/UrnButtons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Gamestate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/MouseInputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/SoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/SoundButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/Constans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
@@ -168,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696682278208</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Menu principal anadido y menu pause en proceso">
+      <created>1696893026004</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696893026004</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,7 +197,8 @@
     <MESSAGE value="Adicion de los niveles" />
     <MESSAGE value="Colisiones Porfin" />
     <MESSAGE value="Gravedad terminada y fixeadaaaaaaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gravedad terminada y fixeadaaaaaaa" />
+    <MESSAGE value="Menu principal anadido y menu pause en proceso" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menu principal anadido y menu pause en proceso" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
