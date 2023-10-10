@@ -3,6 +3,7 @@ package main;
 import gamestates.Gamestate;
 import gamestates.Menu;
 import gamestates.Playing;
+import gamestates.Settings;
 
 import java.awt.*;
 
@@ -19,6 +20,7 @@ public class Game implements Runnable {
 
      private Playing playing;
      private Menu menu;
+     private Settings settings;
 
 
      //Variables que determinan el tamano del juego
@@ -43,7 +45,7 @@ public class Game implements Runnable {
     private void initClasses() {
          menu = new Menu(this);
          playing = new Playing(this);
-
+         settings = new Settings(this);
     }
 
     private void startGameLoop(){
@@ -61,6 +63,8 @@ public class Game implements Runnable {
                  break;
              case QUIT:
                  System.exit(0);
+             case OPTIONS:
+                 settings.update();
              default:
                  break;
          }
@@ -75,6 +79,8 @@ public class Game implements Runnable {
              case PLAYING:
                  playing.draw(g);
                  break;
+             case OPTIONS:
+                 settings.draw(g);
              default:
                  break;
          }

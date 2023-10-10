@@ -13,7 +13,7 @@ public class Playing extends State implements Statemethods{
     private Player player;
     private LevelManager levelManager;
     private PauseOverlay pauseOverlay;
-    private boolean paused = true;
+    private boolean paused = false;
 
     public Playing(Game game) {
         super(game);

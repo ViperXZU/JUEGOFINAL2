@@ -11,14 +11,14 @@ import static utilz.Constans.UI.URMButtons.*;
 public class UrnButtons extends PauseButtons{
 
     private BufferedImage[] imgs;
-    private int rowIndex, index;
+    private int index;
     private boolean mouseOver, mousePressed;
 
 
 
-    public UrnButtons(int x, int y, int width, int height, int rowIndex) {
+    public UrnButtons(int x, int y, int width, int height, int index) {
         super(x, y, width, height);
-        this.rowIndex = rowIndex;
+        this.index = index;
         loadImgs();
     }
 
@@ -26,15 +26,11 @@ public class UrnButtons extends PauseButtons{
         BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.URM_BUTTONS);
         imgs = new BufferedImage[3];
         for (int i =0; i< imgs.length;i++)
-            imgs[i] = temp.getSubimage(i * URM_DEFAULT_SIZE, rowIndex * URM_DEFAULT_SIZE, URM_DEFAULT_SIZE, URM_DEFAULT_SIZE);
+            imgs[i] = temp.getSubimage(0, i*URM_DEFAULT_SIZE, URM_DEFAULT_SIZE, URM_DEFAULT_SIZE);
     }
 
     public void update(){
-        index=0;
-        if (mouseOver)
-            index = 1;
-        if (mousePressed)
-            index = 2;
+
     }
     
     public void draw(Graphics g){
