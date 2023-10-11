@@ -5,7 +5,6 @@ import utilz.LoadSave;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageFilter;
 
 import static utilz.Constans.PlayerConstants.*;
 import static utilz.HelpMethods.*;
@@ -52,8 +51,8 @@ public class Player extends Entity{
         setAnimation();
     }
 
-    public void render(Graphics g){
-        g.drawImage(animations[playerAction][aniIndex], (int) (hitbox.x - xDrawOffset), (int) (hitbox.y - yDrawOffset),width, height, null);
+    public void render(Graphics g, int xLvlOffset){
+        g.drawImage(animations[playerAction][aniIndex], (int) (hitbox.x - xDrawOffset) - xLvlOffset, (int) (hitbox.y - yDrawOffset),width, height, null);
         //Sacar comentario si quieres que se vea la hitbox  drawHitBox(g);
     }
 
