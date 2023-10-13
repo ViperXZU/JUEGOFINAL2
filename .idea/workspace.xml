@@ -8,12 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42a78230-37e0-4f39-93e7-2f0f2d5c0127" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/res/urm_buttons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/UrnButtons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Crabby.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/big_clouds.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/crabby_sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/playing_bg_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/small_clouds.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/level_one_data_long.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/level_one_data_long.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/SoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/SoundButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/Constans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/Constans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
     </list>
@@ -37,6 +43,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -165,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696893026004</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Menu principal anadido y menu pause en proceso">
+      <created>1696986066816</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1696986066816</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

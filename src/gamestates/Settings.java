@@ -13,8 +13,7 @@ import static utilz.LoadSave.PAUSE_BACKGROUND_MENU;
 
 public class Settings extends State implements Statemethods{
 
-    private BufferedImage background;
-    private BufferedImage settings;
+    private BufferedImage background, settings;
     private int bgX,bgY,bgW,bgH;
     public Settings(Game game) {
         super(game);
