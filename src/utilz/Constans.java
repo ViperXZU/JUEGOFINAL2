@@ -22,6 +22,10 @@ public class Constans {
         public static final int CRABBY_WIDTH = (int) (CRABBY_WIDTH_DEFAULT * Game.SCALE);
         public static final int CRABBY_HEIGHT = (int) (CRABBY_HEIGHT_DEFAULT * Game.SCALE);
 
+        public static final int CRABBY_DRAWOFFSET_X = (int) ( 26*Game.SCALE);
+        public static final int CRABBY_DRAWOFFSET_y = (int) ( 9*Game.SCALE);
+
+
         public static int GetSpriteAmount(int enemy_type,int enemy_state) {
             switch (enemy_type) {
                 case CRABBY:
@@ -75,6 +79,13 @@ public class Constans {
             public static final int URM_DEFAULT_SIZE = 30;
             public static final int URM_SIZE= (int) (URM_DEFAULT_SIZE * Game.SCALE);
         }
+    }
+
+    public static class Directions {
+        public static final int LEFT = 0;
+        public static final int UP = 1;
+        public static final int RIGHT = 2;
+        public static final int DOWN = 3;
     }
 
     public static class PlayerConstants{

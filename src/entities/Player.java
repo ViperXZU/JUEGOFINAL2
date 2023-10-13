@@ -42,6 +42,7 @@ public class Player extends Entity{
         super(x, y , width, height);
         loadAnimations();
         initHitbox(x,y,20*Game.SCALE,27 * Game.SCALE); // Iniciacion principal de la hitbox
+
     }
 
     public void update(){
@@ -53,7 +54,7 @@ public class Player extends Entity{
 
     public void render(Graphics g, int xLvlOffset){
         g.drawImage(animations[playerAction][aniIndex], (int) (hitbox.x - xDrawOffset) - xLvlOffset, (int) (hitbox.y - yDrawOffset),width, height, null);
-        //Sacar comentario si quieres que se vea la hitbox  drawHitBox(g);
+        drawHitBox(g,xLvlOffset);
     }
 
     private void loadAnimations() {

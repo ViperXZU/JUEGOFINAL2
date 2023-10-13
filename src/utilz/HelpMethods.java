@@ -62,4 +62,10 @@ public class HelpMethods {
             return IsSolid(hitbox.x + hitbox.width, hitbox.y + hitbox.height + 1, lvlData);
         return true ;
     }
+
+    // Metodo para saber si lo que se va a pisar es suelo (Para enemigos)
+    public static boolean IsFloor(Rectangle2D.Float hitbox, float xSpeed, int[][] lvlData){
+         return IsSolid(hitbox.x + xSpeed,hitbox.y + hitbox.height +1,lvlData);
+    }
+
 }
