@@ -140,6 +140,11 @@ public class Game implements Runnable {
 
     }
 
+
+    public gamestates.Settings getSettings(){
+        return settings;
+    }
+
     public gamestates.Menu getMenu(){
          return menu;
     }

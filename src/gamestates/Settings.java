@@ -64,7 +64,10 @@ public class Settings extends State implements Statemethods{
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_ESCAPE:
+                Gamestate.state = Gamestate.MENU;
+        }
     }
 
     @Override
