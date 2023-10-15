@@ -44,6 +44,23 @@ public class Constans {
             }
             return 0;
         }
+        public static int GetMaxHealth(int enemy_type){
+            switch (enemy_type){
+                case CRABBY:
+                    return 10;
+                default:
+                    return 1;
+            }
+        }
+        public static int GetEnemyDmg(int enemy_type){
+            switch (enemy_type){
+                case CRABBY:
+                    return 10;
+                default:
+                    return 1;
+            }
+        }
+
     }
 
     public static class Enviroment{
@@ -90,11 +107,11 @@ public class Constans {
 
     public static class PlayerConstants{
 
-        public static  final int IDLE = 4;
+        public static  final int ATTACK = 0;
+        public static  final int FALLING = 1;
         public static  final int RUNNING = 2;
         public static  final int JUMP = 3;
-        public static  final int FALLING = 1;
-        public static  final int ATTACK = 0;
+        public static  final int IDLE = 4;
 
         public static int GetSpriteAmount(int player_action){
             switch (player_action){
@@ -114,5 +131,8 @@ public class Constans {
 
         }
 
+
+
     }
+
 }

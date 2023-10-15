@@ -2,6 +2,7 @@ package entities;
 
 import main.Game;
 
+import javax.swing.*;
 import java.awt.geom.Rectangle2D;
 import java.util.EventListener;
 
@@ -20,12 +21,19 @@ public abstract class Enemy extends Entity{
     protected int walkDir = LEFT;
     protected int tileY;
     protected int attackDistance = Game.TILES_SIZE;
+    protected int maxHealth;
+    protected int currentHealth;
+    protected boolean active = true;
+    protected boolean attackChecked;
+
+
 
     public Enemy(float x, float y, int width, int height, int enemyType) {
         super(x, y, width, height);
         this.enemyType = enemyType;
         initHitbox(x, y, width, height);
-
+        maxHealth= GetMaxHealth(enemyType);
+        currentHealth = maxHealth;
     }
 
     protected void updateInAir(int [][] lvlData){
@@ -109,10 +117,28 @@ public abstract class Enemy extends Entity{
             aniIndex++;
             if (aniIndex >= GetSpriteAmount(enemyType, enemyState)) {
                 aniIndex = 0;
-                if (enemyState == ATTACK)
-                    enemyState = IDLE;
+                switch (enemyState){
+                    case ATTACK, HIT -> enemyState = IDLE;
+                    case DEAD -> active = false;
+                }
             }
         }
+    }
+
+    public void hurt(int Damage) {
+        currentHealth -= Damage;
+
+        if (currentHealth <= 0){
+            newState(DEAD);
+        }else
+            newState(HIT);
+    }
+
+
+    protected void checkEnemyHit(Rectangle2D.Float attackBox,Player player) {
+        if (attackBox.intersects(player.hitbox))
+            player.changeHealth(-GetEnemyDmg(enemyType));
+        attackChecked = true;
     }
 
     protected void changeWalkDir() {
@@ -129,5 +155,10 @@ public abstract class Enemy extends Entity{
 
     public int getEnemyState() {
         return enemyState;
+    }
+
+
+    public boolean isActive() {
+        return active;
     }
 }
