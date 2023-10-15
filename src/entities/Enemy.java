@@ -35,7 +35,7 @@ public abstract class Enemy extends Entity{
 
         } else {
             inAir = false;
-            hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox, fallSpeed);
+            hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox, fallSpeed,0);
             tileY = (int) (hitbox.y / Game.TILES_SIZE);
         }
     }
@@ -49,7 +49,7 @@ public abstract class Enemy extends Entity{
 
     //MUY RESUMIDAMENTE ES UNA FUNCION BOOLEANA QUE DETECTA CUANDO EL ENEMIGO PUEDE O NO VER AL JUGADOR
     protected boolean canSeePlayer(int[][] lvlData, Player player){
-        int playerTileY = (int) (player.getHitbox().y / Game.TILES_SIZE);
+        int playerTileY = (int) ((player.getHitbox().y+25) / Game.TILES_SIZE);
         if (playerTileY == tileY)
             if (isPlayerInRange(player))//Aqui estamos chekeando que el jugador esta dentro del rango visible del enemigo
             {if (IsSightClear(lvlData, hitbox, player.hitbox, tileY))// y aqui revisamos si no hay nada que se interponga

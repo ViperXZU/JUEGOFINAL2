@@ -27,8 +27,8 @@ public class Player extends Entity{
     private int[][] lvlData;
 
     // Variables encuadrar la hitbox en el personaje
-    private final float xDrawOffset = 21 * Game.SCALE;
-    private final float yDrawOffset= 4 * Game.SCALE;
+    private final float xDrawOffset = 15 * Game.SCALE;
+    private final float yDrawOffset= 3 * Game.SCALE;
 
     //Variables Gravedad / SALTO
     private float airSpeed = 0f;
@@ -41,8 +41,10 @@ public class Player extends Entity{
     public Player(float x, float y,int width , int height) {
         super(x, y , width, height);
         loadAnimations();
-        initHitbox(x,y,20*Game.SCALE,27 * Game.SCALE); // Iniciacion principal de la hitbox
-
+        initHitbox(x,y,(int) (16 * Game.SCALE), (int) (45 * Game.SCALE)); // Iniciacion principal de la hitbox
+        // 32x32 width 12 y 28 height
+        // xDrawOffset  10
+        // yDrawOffset= 2
     }
 
     public void update(){
@@ -61,10 +63,10 @@ public class Player extends Entity{
 
             BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_ATLAS);
 
-            animations = new BufferedImage[9][6];
+            animations = new BufferedImage[5][12];
             for (int j = 0; j < animations.length; j++) {
                 for (int i = 0; i < animations[j].length; i++) {
-                    animations[j][i] = img.getSubimage(i * 64, j * 40, 64, 40);
+                    animations[j][i] = img.getSubimage(i * 64, j * 64, 64, 64);
                 }
             }
     }
@@ -116,7 +118,7 @@ public class Player extends Entity{
         }
 
         if (attacking)
-            playerAction = ATTACK_1;
+            playerAction = ATTACK;
 
 
         if (startAni != playerAction)
@@ -162,7 +164,7 @@ public class Player extends Entity{
             updateXPos(xSpeed);
         }else {
         //Condicional que tiene dentro una funcion condicional que detectara si el personaje se puede mover en una direccion u otra
-            hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox,airSpeed);
+            hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox,airSpeed,25);
             if (airSpeed > 0)
                 resetInAir();
             else
