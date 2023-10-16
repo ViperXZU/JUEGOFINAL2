@@ -8,11 +8,14 @@ import ui.GameOverOverlay;
 import ui.PauseOverlay;
 import utilz.LoadSave;
 
+import javax.sound.sampled.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 import static utilz.Constans.Enviroment.Clouds.*;
@@ -36,15 +39,29 @@ public class Playing extends State implements Statemethods{
     private BufferedImage backgroundImg, bigClouds, smallClouds;
     private int[] smallCloudsPos;
     private Random rnd = new Random();
+    private Clip clip;
 
     private boolean gameOver;
 
     public Playing(Game game) {
         super(game);
         initClasses();
-
+        loadMusic();
         loadBackground();
         setRandomY();
+    }
+
+    private void loadMusic() {
+        File file = new File("src/res/level.wav");
+        try {
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+            System.out.println("HOLA");
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     private void setRandomY() {
@@ -131,7 +148,11 @@ public class Playing extends State implements Statemethods{
 
 
     public void resetAll() {
-        // RESET
+        clip.setMicrosecondPosition(0);
+        gameOver = false;
+        paused = false;
+        player.resetAll();
+        enemyManager.resetAllEnemies();
     }
 
     @Override

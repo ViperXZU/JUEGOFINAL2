@@ -27,6 +27,9 @@ public class LoadSave {
     public static final String URM_BUTTONS = "res/urm_buttons.png";
     public static final String CRABBY_SPRITE = "res/crabby_sprite.png";
     public static final String STATUS_BAR = "res/health_power_bar.png";
+    public static final String GAME_OVER = "res/GameOver.png";
+    public static final String GAME_OVER_BACKGROUND = "res/fondo_Gameover.png";
+
 
     public static BufferedImage GetSpriteAtlas(String fileName){
         BufferedImage img = null;

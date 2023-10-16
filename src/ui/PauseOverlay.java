@@ -117,7 +117,7 @@ public class PauseOverlay {
                 playing.setPaused(false);
         } else if (isIn(e,replayB)) {
             if (replayB.isMousePressed())
-                playing.getPlayer().setHitbox(200,200);
+                playing.resetAll();
 
         }else if (isIn(e, unpauseB)){
             if (unpauseB.isMousePressed())

@@ -40,8 +40,8 @@ public class Crabby extends Enemy{
         attackBox.y = hitbox.y;
     }
     protected void drawAttackBox(Graphics g, int xLvlOffset) {
-        g.setColor(Color.red);
-        g.drawRect((int)attackBox.x - xLvlOffset,(int)attackBox.y, (int)attackBox.width,(int)attackBox.height);
+        //g.setColor(Color.red);
+        //g.drawRect((int)attackBox.x - xLvlOffset,(int)attackBox.y, (int)attackBox.width,(int)attackBox.height);
     }
 
     private void updateBehavior(int[][] lvlData, Player player) {
