@@ -7,20 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42a78230-37e0-4f39-93e7-2f0f2d5c0127" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/res/GameOver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/fondo_Gameover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/level.wav" afterDir="false" />
+    <list default="true" id="42a78230-37e0-4f39-93e7-2f0f2d5c0127" name="Changes" comment="ULTIMO COMMIT ANTES DE LA ENTREGA NIVEL TERMINADO Y MUSICA DE FONDO ANADIDA Y RESET ANADIDO.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Crabby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Crabby.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/EnemyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/EnemyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Playing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/level_one_data_long.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/level_one_data_long.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/GameOverOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/PauseOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/LoadSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilz/HelpMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelpMethods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +242,8 @@
     <MESSAGE value="Menu principal anadido y menu pause en proceso" />
     <MESSAGE value="Personaje Yagi anadido y varios bugs solucionadosss" />
     <MESSAGE value="Sistema de combate anadido cambios al ambiente y algunos bugs fixeados" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sistema de combate anadido cambios al ambiente y algunos bugs fixeados" />
+    <MESSAGE value="ULTIMO COMMIT ANTES DE LA ENTREGA NIVEL TERMINADO Y MUSICA DE FONDO ANADIDA Y RESET ANADIDO." />
+    <option name="LAST_COMMIT_MESSAGE" value="ULTIMO COMMIT ANTES DE LA ENTREGA NIVEL TERMINADO Y MUSICA DE FONDO ANADIDA Y RESET ANADIDO." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

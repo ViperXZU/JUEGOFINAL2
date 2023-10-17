@@ -72,7 +72,7 @@ public class Player extends Entity{
     public Player(float x, float y,int width , int height, Playing playing) {
         super(x, y , width, height);
         loadAnimations();
-        initHitbox(x,y,(int) (16 * Game.SCALE), (int) (44 * Game.SCALE)); // Iniciacion principal de la hitbox
+        initHitbox(x,y,(int) (16 * Game.SCALE), (int) (27 * Game.SCALE)); // Iniciacion principal de la hitbox
         initAttackBox();
         // 32x32 width 12 y 28 height
         // xDrawOffset  10
@@ -124,9 +124,9 @@ public class Player extends Entity{
     public void render(Graphics g, int xLvlOffset){
         g.drawImage(animations[playerAction][aniIndex],
                 (int) (hitbox.x - xDrawOffset) - xLvlOffset + flipX,
-                (int) (hitbox.y - yDrawOffset),
+                (int) ((hitbox.y - yDrawOffset)-24),
                 width * flipW, height, null);
-        //drawHitBox(g,xLvlOffset);
+        // drawHitBox(g,xLvlOffset);
         //drawAttackBox(g,xLvlOffset);
         drawUI(g);
     }
@@ -261,7 +261,7 @@ public class Player extends Entity{
             updateXPos(xSpeed);
         }else {
         //Condicional que tiene dentro una funcion condicional que detectara si el personaje se puede mover en una direccion u otra
-            hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox,airSpeed,25);
+            hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox,airSpeed);
             if (airSpeed > 0)
                 resetInAir();
             else
