@@ -7,11 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42a78230-37e0-4f39-93e7-2f0f2d5c0127" name="Changes" comment="ULTIMO COMMIT ANTES DE LA ENTREGA NIVEL TERMINADO Y MUSICA DE FONDO ANADIDA Y RESET ANADIDO.">
+    <list default="true" id="42a78230-37e0-4f39-93e7-2f0f2d5c0127" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilz/HelpMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilz/HelpMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697405151852</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="FIXES">
+      <created>1697577749792</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1697577749792</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,7 +250,8 @@
     <MESSAGE value="Personaje Yagi anadido y varios bugs solucionadosss" />
     <MESSAGE value="Sistema de combate anadido cambios al ambiente y algunos bugs fixeados" />
     <MESSAGE value="ULTIMO COMMIT ANTES DE LA ENTREGA NIVEL TERMINADO Y MUSICA DE FONDO ANADIDA Y RESET ANADIDO." />
-    <option name="LAST_COMMIT_MESSAGE" value="ULTIMO COMMIT ANTES DE LA ENTREGA NIVEL TERMINADO Y MUSICA DE FONDO ANADIDA Y RESET ANADIDO." />
+    <MESSAGE value="FIXES" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIXES" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

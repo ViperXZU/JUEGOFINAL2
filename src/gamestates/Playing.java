@@ -140,7 +140,7 @@ public class Playing extends State implements Statemethods{
 
     private void drawClouds(Graphics g) {
         // El limite del for determina cuantas nubes van a haber, las grandes no se tocan por que ya esta listo.
-        for (int i= 0; i < 5; i++)
+        for (int i= 0; i < 6; i++)
             g.drawImage(bigClouds, i*BIG_CLOUD_WIDTH - (int)(xLvlOffset * 0.3), (int) (204*Game.SCALE),BIG_CLOUD_WIDTH,BIG_CLOUD_HEIGHT,null);
         for (int i= 0; i < smallCloudsPos.length; i++)
             g.drawImage(smallClouds, SMALL_CLOUD_WIDTH*4*i - (int)(xLvlOffset * 0.5),smallCloudsPos[i],SMALL_CLOUD_WIDTH,SMALL_CLOUD_HEIGHT,null);

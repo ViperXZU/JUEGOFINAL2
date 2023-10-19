@@ -81,7 +81,7 @@ public class Player extends Entity{
     }
 
     private void initAttackBox() {
-        attackBox = new Rectangle2D.Float(x,y,(int)20*Game.SCALE, (int)20*Game.SCALE);
+        attackBox = new Rectangle2D.Float(x,y,(int)25*Game.SCALE, (int)20*Game.SCALE);
     }
 
     public void update(){
@@ -126,7 +126,7 @@ public class Player extends Entity{
                 (int) (hitbox.x - xDrawOffset) - xLvlOffset + flipX,
                 (int) ((hitbox.y - yDrawOffset)-24),
                 width * flipW, height, null);
-        // drawHitBox(g,xLvlOffset);
+        //drawHitBox(g,xLvlOffset);
         //drawAttackBox(g,xLvlOffset);
         drawUI(g);
     }

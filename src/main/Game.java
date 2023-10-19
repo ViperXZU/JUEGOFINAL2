@@ -134,11 +134,11 @@ public class Game implements Runnable {
 
 
     public void windowFocusLost() {
-         if(Gamestate.state == Gamestate.PLAYING){
-             playing.getPlayer().resetDirBooleans();
-         }
+         if (Gamestate.state == Gamestate.PLAYING){
+            playing.getPlayer().resetDirBooleans();
+            playing.setPaused(true); }
+     }
 
-    }
 
 
     public gamestates.Settings getSettings(){
